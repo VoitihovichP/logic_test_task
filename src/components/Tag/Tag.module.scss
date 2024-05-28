@@ -1,0 +1,41 @@
+@use 'Styles/vars' as *;
+
+.tag {
+  padding: 9px 12px;
+  width: 100%;
+  border-radius: $layout-borderRadius-large;
+  cursor: pointer;
+  transition: $default-transition-duration all;
+
+  p {
+    color: $base-font-color;
+    font-size: 18px;
+    transition: $default-transition-duration all;
+  }
+
+
+  @media (hover: hover) {
+    &:hover {
+      p {
+        color: $brand-color;
+      }
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      p {
+        color: $brand-color;
+      }
+    }
+  }
+
+  &_active {
+    pointer-events: none;
+    background-color: $brand-color;
+
+    p {
+      color: $active-font-color;
+    }
+  }
+}
