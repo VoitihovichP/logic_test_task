@@ -1,7 +1,7 @@
-import { Tag } from 'Components/Tag/Tag.tsx';
+import { Tag } from 'Components/Tag/Tag';
 import { FC, memo, useCallback } from 'react';
 
-import { TagsPanelModel } from '../../models/TagsPanelModels.ts';
+import { TagsPanelModel } from '../../models/TagsPanelModels';
 import styles from './TagsPanel.module.scss';
 
 export const TagsPanel: FC<TagsPanelModel> = memo(({ tagsList }) => {
@@ -22,3 +22,5 @@ export const TagsPanel: FC<TagsPanelModel> = memo(({ tagsList }) => {
     </div>
   );
 });
+
+TagsPanel.displayName = 'TagsPanel';

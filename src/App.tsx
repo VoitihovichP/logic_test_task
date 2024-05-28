@@ -1,6 +1,6 @@
 import { Home } from 'Pages/Home';
 
-function App() {
+const App = () => {
   return (
     <main>
       <div className="container">
@@ -8,6 +8,6 @@ function App() {
       </div>
     </main>
   );
-}
+};
 
 export default App;

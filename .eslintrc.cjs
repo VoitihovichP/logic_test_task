@@ -41,7 +41,15 @@ module.exports = {
       1,
       { extensions: ['.jsx', '.tsx'] },
     ],
+    'react/function-component-definition': [
+      'error',
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     'react/prop-types': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     react: {

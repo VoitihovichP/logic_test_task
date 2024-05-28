@@ -11,11 +11,14 @@ type TagModel = {
 
 export const Tag: FC<TagModel> = memo(({ title, isActive, onSelect }) => {
   return (
-    <div
+    <button
+      type="button"
       className={cn(styles.tag, { [styles.tag_active]: isActive })}
       onClick={onSelect}
     >
       <p>{title}</p>
-    </div>
+    </button>
   );
 });
+
+Tag.displayName = 'Tag';
