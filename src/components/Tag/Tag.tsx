@@ -3,17 +3,17 @@ import { FC, memo } from 'react';
 
 import styles from './Tag.module.scss';
 
-type TagProps = {
+type TagModel = {
   title: string;
   isActive: boolean;
-  onClick: () => void;
+  onSelect: () => void;
 };
 
-export const Tag: FC<TagProps> = memo(({ title, isActive, onClick }) => {
+export const Tag: FC<TagModel> = memo(({ title, isActive, onSelect }) => {
   return (
     <div
       className={cn(styles.tag, { [styles.tag_active]: isActive })}
-      onClick={onClick}
+      onClick={onSelect}
     >
       <p>{title}</p>
     </div>

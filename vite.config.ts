@@ -23,7 +23,6 @@ export default defineConfig({
       Pages: path.resolve('./src/pages'),
       Modules: path.resolve('./src/modules'),
       Components: path.resolve('./src/components'),
-      Ui: path.resolve('./src/ui'),
       Configs: path.resolve('./src/configs'),
       Styles: path.resolve('./src/styles'),
     },

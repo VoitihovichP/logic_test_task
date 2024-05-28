@@ -25,7 +25,6 @@
       "Pages/*": ["src/pages/*"],
       "Modules/*": ["src/modules/*"],
       "Components/*": ["src/components/*"],
-      "Ui/*": ["src/ui/*"],
       "Configs/*": ["src/configs/*"],
       "Styles/*": ["src/styles/*"]
     }

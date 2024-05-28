@@ -11,3 +11,8 @@ body {
   min-height: 100dvh;
   background: $layout-body-backgroundColor;
 }
+
+.container {
+  margin: 0 auto;
+  width: calc(100vw - 48px);
+}

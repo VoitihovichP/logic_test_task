@@ -1,5 +1,13 @@
+import { Home } from 'Pages/Home';
+
 function App() {
-  return <>app</>;
+  return (
+    <main>
+      <div className="container">
+        <Home />
+      </div>
+    </main>
+  );
 }
 
 export default App;
