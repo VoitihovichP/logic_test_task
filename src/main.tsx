@@ -1,4 +1,4 @@
-import './index.scss';
+import './styles/index.scss';
 
 import queryClient from 'Configs/queryClient';
 import React from 'react';

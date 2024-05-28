@@ -11,6 +11,12 @@ export default defineConfig({
     strictPort: true,
   },
   plugins: [react()],
+  css: {
+    devSourcemap: true,
+    modules: {
+      localsConvention: 'camelCase',
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve('./src'),
@@ -19,6 +25,7 @@ export default defineConfig({
       Components: path.resolve('./src/components'),
       Ui: path.resolve('./src/ui'),
       Configs: path.resolve('./src/configs'),
+      Styles: path.resolve('./src/styles'),
     },
   },
 });
