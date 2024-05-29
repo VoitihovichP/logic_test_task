@@ -1,5 +1,6 @@
-import { Tag } from 'Components/Tag/Tag';
 import { FC, memo, useCallback } from 'react';
+
+import { Tag } from '@/components';
 
 import { TagsPanelModel } from '../../models/TagsPanelModels';
 import styles from './TagsPanel.module.scss';

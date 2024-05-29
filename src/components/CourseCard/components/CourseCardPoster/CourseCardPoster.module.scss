@@ -1,0 +1,17 @@
+@use 'Styles/vars' as *;
+
+.courseCardPoster {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $layout-card-poster-wrapper-height;
+    border-top-left-radius: $layout-borderRadius-large;
+    border-top-right-radius: $layout-borderRadius-large;
+  }
+
+  &__image {
+    width: $layout-card-poster-image-width;
+    height: $layout-card-poster-image-height;
+  }
+}

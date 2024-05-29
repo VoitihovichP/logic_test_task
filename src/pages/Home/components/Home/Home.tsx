@@ -1,5 +1,8 @@
 import { TagsPanel } from 'Modules/TagsPanel';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useQuery } from 'react-query';
+
+import { CourseCard } from '@/components';
 
 import styles from './Home.module.scss';
 
@@ -19,9 +22,30 @@ export const Home: FC = () => {
     },
   ];
 
+  const { data } = useQuery({
+    queryKey: ['courses'],
+    queryFn: () =>
+      fetch('https://logiclike.com/docs/courses.json').then((res) =>
+        res.json(),
+      ),
+  });
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <div className={styles.home}>
       <TagsPanel tagsList={arr} />
+      {data &&
+        data.map((item) => (
+          <CourseCard
+            key={item.id}
+            title={item.name}
+            image={item.image}
+            bgColor={item.bgColor}
+          />
+        ))}
     </div>
   );
 };

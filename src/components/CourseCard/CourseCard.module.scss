@@ -1,0 +1,13 @@
+@use 'Styles/vars' as *;
+
+.courseCard {
+  border-radius: $layout-borderRadius-large;
+  box-shadow: 0 10px 13px -4px rgba(35, 35, 95, 0.19);
+  height: 210px;
+  //TODO: Убрать ширину
+  width: 253px;
+  &__description {
+    padding: 12px 18px 18px 18px;
+    height: calc(100% - $layout-card-poster-wrapper-height);
+  }
+}
