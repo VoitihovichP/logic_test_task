@@ -7,7 +7,7 @@ import styles from './TagsPanel.module.scss';
 
 export const TagsPanel: FC<TagsPanelModel> = memo(({ tagsList }) => {
   const handleSelectTag = useCallback(() => {
-    alert('test');
+    console.log('click');
   }, []);
 
   return (

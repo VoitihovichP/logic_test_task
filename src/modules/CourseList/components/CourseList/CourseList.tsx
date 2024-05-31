@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { CourseCard } from '@/components';
 
 import { ICourseListProps } from '../../models/CourseList.model';
 import styles from './CourseList.module.scss';
 
-export const CourseList: FC<ICourseListProps> = ({ courseList }) => {
+export const CourseList: FC<ICourseListProps> = memo(({ courseList }) => {
   return (
     <div className={styles.courseList}>
       {courseList.map((item) => (
@@ -18,4 +18,6 @@ export const CourseList: FC<ICourseListProps> = ({ courseList }) => {
       ))}
     </div>
   );
-};
+});
+
+CourseList.displayName = 'CourseList';

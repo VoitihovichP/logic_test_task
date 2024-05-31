@@ -1,36 +1,46 @@
 import { CourseList } from 'Modules/CourseList';
 import { TagsPanel } from 'Modules/TagsPanel';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useQuery } from 'react-query';
+
+import { Loader } from '@/components';
 
 import { getCoursesApi } from '../../api/getCoursesApi';
 import { QueryKeys } from '../../constants/queryKeys';
 import styles from './Home.module.scss';
 
 export const Home: FC = () => {
-  const { data: coursesData, isLoading } = useQuery({
+  const {
+    data: coursesData,
+    isLoading,
+    isFetching,
+  } = useQuery({
     queryKey: QueryKeys.COURSES,
     queryFn: getCoursesApi,
-    cacheTime: 0,
   });
 
-  const arr = [
-    {
-      id: 1,
-      value: 'Все темы',
-    },
-    {
-      id: 2,
-      value: 'Логика и мышление',
-    },
-    {
-      id: 3,
-      value: 'Загадки',
-    },
-  ];
+  const courses = useMemo(() => coursesData || [], [coursesData]);
 
-  if (isLoading) {
-    return <div>Loading</div>;
+  const arr = useMemo(
+    () => [
+      {
+        id: 1,
+        value: 'Все темы',
+      },
+      {
+        id: 2,
+        value: 'Логика и мышление',
+      },
+      {
+        id: 3,
+        value: 'Загадки',
+      },
+    ],
+    [],
+  );
+
+  if (isLoading || isFetching) {
+    return <Loader />;
   }
 
   if (!coursesData) {
@@ -40,7 +50,7 @@ export const Home: FC = () => {
   return (
     <div className={styles.home}>
       <TagsPanel tagsList={arr} />
-      <CourseList courseList={coursesData} />
+      <CourseList courseList={courses} />
     </div>
   );
 };
