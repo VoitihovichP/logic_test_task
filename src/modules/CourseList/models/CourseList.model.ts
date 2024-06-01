@@ -10,4 +10,5 @@ export type CourseList = CourseType[];
 
 export type ICourseListProps = {
   courseList: CourseList;
+  activeTag: string;
 };

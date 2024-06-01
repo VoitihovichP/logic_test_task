@@ -25,6 +25,7 @@ export default defineConfig({
       Components: path.resolve('./src/components'),
       Configs: path.resolve('./src/configs'),
       Styles: path.resolve('./src/styles'),
+      Context : path.resolve('./src/context'),
     },
   },
 });

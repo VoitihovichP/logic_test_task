@@ -26,7 +26,8 @@
       "Modules/*": ["src/modules/*"],
       "Components/*": ["src/components/*"],
       "Configs/*": ["src/configs/*"],
-      "Styles/*": ["src/styles/*"]
+      "Styles/*": ["src/styles/*"],
+      "Context/*": ["src/context/*"]
     }
   },
   "include": ["src", "vite.config.ts"],

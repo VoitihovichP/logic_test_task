@@ -1,15 +1,19 @@
 import { CourseList } from 'Modules/CourseList';
 import { TagsPanel } from 'Modules/TagsPanel';
-import { FC, useMemo } from 'react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { Loader } from '@/components';
 
 import { getCoursesApi } from '../../api/getCoursesApi';
+import { allTag } from '../../constants/CommonTags';
 import { QueryKeys } from '../../constants/queryKeys';
+import { createTagsList } from '../../helpers/createTagsList';
 import styles from './Home.module.scss';
 
 export const Home: FC = () => {
+  const [selectedTag, setSelectedTag] = useState<string>(allTag.value);
+
   const {
     data: coursesData,
     isLoading,
@@ -20,24 +24,14 @@ export const Home: FC = () => {
   });
 
   const courses = useMemo(() => coursesData || [], [coursesData]);
-
-  const arr = useMemo(
-    () => [
-      {
-        id: 1,
-        value: 'Все темы',
-      },
-      {
-        id: 2,
-        value: 'Логика и мышление',
-      },
-      {
-        id: 3,
-        value: 'Загадки',
-      },
-    ],
-    [],
+  const coursesTags = useMemo(
+    () => (coursesData ? [allTag, ...createTagsList(coursesData)] : [allTag]),
+    [coursesData],
   );
+
+  const handleSelectTag = useCallback((tag: string) => {
+    setSelectedTag(tag);
+  }, []);
 
   if (isLoading || isFetching) {
     return <Loader />;
@@ -49,8 +43,12 @@ export const Home: FC = () => {
 
   return (
     <div className={styles.home}>
-      <TagsPanel tagsList={arr} />
-      <CourseList courseList={courses} />
+      <TagsPanel
+        tagsList={coursesTags}
+        activeTag={selectedTag}
+        onSelect={handleSelectTag}
+      />
+      <CourseList courseList={courses} activeTag={selectedTag} />
     </div>
   );
 };
