@@ -24,14 +24,12 @@
 
 ## Инструкции по развертыванию
 
-1. Клонируйте репозиторий: `git clone https://github.com/your/repository.git`
-2. Перейдите в директорию проекта: `cd your-project`
-3. Установите зависимости: `npm install` или `yarn install`
-4. Запустите приложение: `npm run dev` или `yarn dev`
+1. Клонируйте репозиторий: `git clone https://github.com/VoitihovichP/logic_test_task.git`
+2. Перейдите в директорию проекта: `cd logic_test_task`
+3. Установите зависимости: `npm install`
+4. Запустите приложение: `npm run dev`
 5. Приложение будет доступно по адресу `http://localhost:3000`
 
 ## Автор
 
-Автор: [Your Name](https://github.com/your-profile)
-
-Если у вас есть какие-либо вопросы или предложения, не стесняйтесь связаться со мной.
+Автор: [VoitihovichP](https://github.com/VoitihovichP)
