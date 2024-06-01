@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import { Loader } from '@/components';
 
 import { getCoursesApi } from '../../api/getCoursesApi';
+import { GetCoursesApiResponse } from '../../api/types/getCoursesApi.types';
 import { allTag } from '../../constants/CommonTags';
 import { QueryKeys } from '../../constants/queryKeys';
 import { createTagsList } from '../../helpers/createTagsList';
@@ -18,7 +19,7 @@ export const Home: FC = () => {
     data: coursesData,
     isLoading,
     isFetching,
-  } = useQuery({
+  } = useQuery<GetCoursesApiResponse>({
     queryKey: QueryKeys.COURSES,
     queryFn: getCoursesApi,
   });
@@ -37,7 +38,7 @@ export const Home: FC = () => {
     return <Loader />;
   }
 
-  if (!coursesData) {
+  if (!courses.length) {
     return <div>No Data</div>;
   }
 
