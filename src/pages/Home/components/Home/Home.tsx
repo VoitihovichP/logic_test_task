@@ -3,7 +3,7 @@ import { TagsPanel } from 'Modules/TagsPanel';
 import { FC, useCallback, useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 
-import { Loader } from '@/components';
+import { Loader, NoDataBanner } from '@/components';
 
 import { getCoursesApi } from '../../api/getCoursesApi';
 import { GetCoursesApiResponse } from '../../api/types/getCoursesApi.types';
@@ -19,6 +19,7 @@ export const Home: FC = () => {
     data: coursesData,
     isLoading,
     isFetching,
+    error,
   } = useQuery<GetCoursesApiResponse>({
     queryKey: QueryKeys.COURSES,
     queryFn: getCoursesApi,
@@ -38,8 +39,8 @@ export const Home: FC = () => {
     return <Loader />;
   }
 
-  if (!courses.length) {
-    return <div>No Data</div>;
+  if (!courses.length || error) {
+    return <NoDataBanner />;
   }
 
   return (
