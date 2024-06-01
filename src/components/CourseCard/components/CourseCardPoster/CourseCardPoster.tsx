@@ -15,6 +15,7 @@ export const CourseCardPoster: FC<CourseCardPosterModel> = ({
       <img
         className={styles.courseCardPoster__image}
         src={image}
+        loading="lazy"
         alt="poster"
       />
     </div>
