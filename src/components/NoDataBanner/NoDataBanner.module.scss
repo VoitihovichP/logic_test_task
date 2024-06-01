@@ -1,0 +1,18 @@
+@use 'Styles/vars' as *;
+
+.noDataBanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 362px;
+  p {
+    text-align: center;
+    font-size: 28px;
+    color: $brand-color;
+    text-transform: uppercase;
+  }
+  span {
+    font-size: 18px;
+  }
+}
